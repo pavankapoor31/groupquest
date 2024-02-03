@@ -10,6 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import Groups from "../components/Groups/Groups";
 import Events from "../components/Events/Events";
+import EventDetails from "../components/EventDetails/EventDetails";
 
 
 const Pages = styled.div`
@@ -48,6 +49,7 @@ function    RouteManager() {
           <Route path={"/home"} element={<Home />} />
           <Route path={"/groups"} element={<Groups />} />
           <Route path={"/events"} element={<Events />} />
+          <Route path={"/events/details/:id"} element={<EventDetails />} />
           </Routes>
         </AnimatePresence>
       </Router>

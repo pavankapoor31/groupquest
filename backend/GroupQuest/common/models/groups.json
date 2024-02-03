@@ -1,0 +1,35 @@
+
+{
+    "name": "Groups",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "required": false
+      },
+      "createdBy": {
+        "type": "string",
+        "required": true
+      },
+      "members": {
+        "type": [ "object" ],
+        "required": true
+      },
+      "createdOn": {
+        "type": "date"
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

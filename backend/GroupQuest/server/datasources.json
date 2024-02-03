@@ -1,0 +1,10 @@
+{
+
+  "db": {
+    "name": "myMongoDB",
+    "connector": "mongodb",
+    "url": "mongodb+srv://temp:123@cluster0.rpns8fe.mongodb.net/?retryWrites=true&w=majority",
+    "ssl": true
+  }
+  
+}

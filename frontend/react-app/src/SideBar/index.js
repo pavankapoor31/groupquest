@@ -263,7 +263,7 @@ const Sidebar = () => {
             to="/groups"
           >
             <img src={Team} alt="Team" />
-            <Text clicked={click}>Team</Text>
+            <Text clicked={click}>Groups</Text>
           </Item>
           <Item
             onClick={() => setClick(false)}
@@ -271,9 +271,9 @@ const Sidebar = () => {
             to="/calender"
           >
             <img src={Calender} alt="Calender" />
-            <Text clicked={click}>Calender</Text>
+            <Text clicked={click}>Events</Text>
           </Item>
-          <Item
+          {/* <Item
             onClick={() => setClick(false)}
             activeClassName="active"
             to="/documents"
@@ -288,7 +288,7 @@ const Sidebar = () => {
           >
             <img src={Projects} alt="Projects" />
             <Text clicked={click}>Projects</Text>
-          </Item>
+          </Item> */}
         </SlickBar>
 
         <Profile clicked={profileClick} title={profileName}>

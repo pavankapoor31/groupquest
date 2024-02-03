@@ -14,9 +14,7 @@ import Groups from "../components/Groups/Groups";
 const Pages = styled.div`
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ 
 
   h1 {
     font-size: calc(2rem + 2vw);
@@ -30,12 +28,18 @@ const Pages = styled.div`
  * Manages all the routes for the application. Add your routes inside the Route tag enclosed by Routes tag.
  * Define all the elements in Pages folder.
  */
+
+const isLoginOrSignup = () => {
+  return ['/login', '/signup'].includes(window.location.pathname);
+};
+
 function    RouteManager() {
   return (
     <div className="bg-main">
       <Pages>
       <Router>
-      <Sidebar />
+      {/* <Sidebar /> */}
+      {!isLoginOrSignup() && <Sidebar />}
         <AnimatePresence mode="wait">
           <Routes >
           <Route path={"/login"} element={<Login />} />

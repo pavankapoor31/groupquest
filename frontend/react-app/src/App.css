@@ -36,6 +36,14 @@
     transform: rotate(360deg);
   }
 }
-.bg-main{
-  background-color: rgba(137, 171, 245, 0.37);
+html,body,.bg-main{
+  background-color: rgba(255, 255, 255, 0.37);
+}
+
+.cursive-font{
+  font-family: monospace;
+}
+
+.main-element{
+  padding-left: 75px;
 }

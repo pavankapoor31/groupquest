@@ -1,16 +1,17 @@
 import logo from './logo.svg';
-import './App.css';
 import RouteManager from './routes';
 import 'bootstrap/dist/css/bootstrap.css';
-import Toast from './components/Toast/Toast';
+import './App.css';
 
+import Toast from './components/Toast/Toast';
 
 function App() {
   return (
-    <div className="">
+    <div className='root-app'>
+
       <RouteManager/>
-      {/* <Toast/> */}
     </div>
+
   );
 }
 

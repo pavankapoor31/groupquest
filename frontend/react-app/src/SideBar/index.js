@@ -268,7 +268,7 @@ const Sidebar = () => {
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"
-            to="/calender"
+            to="/events"
           >
             <img src={Calender} alt="Calender" />
             <Text clicked={click}>Events</Text>
@@ -296,7 +296,7 @@ const Sidebar = () => {
 
           <Details clicked={profileClick} className="">
             <Name className="pb-3 pt-3 text-xs" >
-              <span className="text-truncate" style={{ display:'block',maxWidth:'7rem'}}>{profileName}sadsdsadassadasasdas</span>
+              <span className="text-truncate" style={{ display:'block',maxWidth:'7rem'}}>{profileName}</span>
             </Name>
 
             <Logout>

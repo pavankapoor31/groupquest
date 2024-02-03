@@ -9,6 +9,7 @@ import Sidebar from "../SideBar";
 import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import Groups from "../components/Groups/Groups";
+import Events from "../components/Events/Events";
 
 
 const Pages = styled.div`
@@ -46,6 +47,7 @@ function    RouteManager() {
           <Route path={"/signup"} element={<Signup />} />
           <Route path={"/home"} element={<Home />} />
           <Route path={"/groups"} element={<Groups />} />
+          <Route path={"/events"} element={<Events />} />
           </Routes>
         </AnimatePresence>
       </Router>

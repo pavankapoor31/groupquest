@@ -16,16 +16,14 @@
         "required": true
       },
       "group_id": {
-        "type": "string",
-        "required": true
+        "type": "string"
       },
       "timestamp":{
         "type": "date",
         "required": true
       },
       "title":{
-        "type":"string",
-        "required":true
+        "type":"string"
       }
     },
     "validations": [],

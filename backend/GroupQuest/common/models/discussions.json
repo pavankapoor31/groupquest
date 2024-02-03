@@ -1,0 +1,32 @@
+
+{
+    "name": "Discussions",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "required": true
+      },
+      "group_id": {
+        "type": "string",
+        "required": true
+      },
+      "message": {
+        "type": "string",
+        "required": true
+      },
+      "timestamp":{
+        "type": "date",
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

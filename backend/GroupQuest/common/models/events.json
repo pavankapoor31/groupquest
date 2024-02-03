@@ -1,0 +1,56 @@
+
+{
+    "name": "Events",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string"
+      },
+      "group_id": {
+        "type": "string",
+        "required": true
+      },
+      "startTime": {
+        "type": "date",
+        "required": true
+      },
+      "endTime": {
+        "type": "date",
+        "required": true
+      },
+      "createdBy":{
+        "type": "string",
+        "required": true
+      }
+    },
+    "validations": [],
+    "relations": {
+        "Users": {
+            "type": "belongsTo",
+            "model": "Users",
+            "foreignKey": "id",
+            "options": {
+              "nestRemoting": true
+            }
+          },
+          "Groups": {
+            "type": "belongsTo",
+            "model": "Groups",
+            "foreignKey": "id",
+            "options": {
+              "nestRemoting": true
+            }
+          }
+    },
+    "acls": [],
+    "methods": {}
+  }
+  

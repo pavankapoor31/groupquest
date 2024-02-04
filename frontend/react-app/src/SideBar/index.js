@@ -15,6 +15,7 @@ import { Modal, Tooltip } from "@mui/material";
 import MuiMenu from "../components/MuiMenu/MuiMenu";
 import AddIcon from '@mui/icons-material/Add';
 import AddEvent from "../components/AddEvent";
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 const Container = styled.div`
   position: fixed;
   left:0px;
@@ -292,18 +293,27 @@ const Sidebar = () => {
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"
-            to="/groups"
-          >
-            <img src={Team} alt="Team" />
-            <Text clicked={click}>Groups</Text>
-          </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
             to="/events"
           >
             <img src={Calender} alt="Calender" />
             <Text clicked={click}>Events</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/groups"
+          >
+            {/* <img src={Team} alt="Team" /> */}
+            <TaskAltIcon/>
+            <Text clicked={click}>Goals</Text>
+          </Item>
+          <Item
+            onClick={() => setClick(false)}
+            activeClassName="active"
+            to="/resources"
+          >
+            <img src={Documents} alt="Documents" />
+            <Text clicked={click}>Documents</Text>
           </Item>
           <Item onClick={() => setClick(false)}
             activeClassName="inactive"
@@ -313,14 +323,7 @@ const Sidebar = () => {
               <MuiMenu renderTitle={addOptionsElement} optionsList={addOptionsList} />
             </Tooltip>
           </Item>
-          {/* <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/documents"
-          >
-            <img src={Documents} alt="Documents" />
-            <Text clicked={click}>Documents</Text>
-          </Item>
+          {/* 
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"

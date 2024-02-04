@@ -8,7 +8,7 @@ import Signup from "../components/Signup/Signup";
 import Sidebar from "../SideBar";
 import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
-import Groups from "../components/Groups/Groups";
+import Groups from "../components/Goals/Goals";
 import Events from "../components/Events/Events";
 import EventDetails from "../components/EventDetails/EventDetails";
 
@@ -45,7 +45,7 @@ function RouteManager() {
                   <>
                     {" "}
                     <Sidebar />
-                    <Home />{" "}
+                    <Home/>{" "}
                   </>
                 }
               />
@@ -65,7 +65,7 @@ function RouteManager() {
                   <>
                     {" "}
                     <Sidebar />
-                    <Events />{" "}
+                    <Events/>{" "}
                   </>
                 }
               />
@@ -75,7 +75,17 @@ function RouteManager() {
                   <>
                     {" "}
                     <Sidebar />
-                    <EventDetails />{" "}
+                    <EventDetails/>{" "}
+                  </>
+                }
+              />
+              <Route
+                path={"/resources"}
+                element={
+                  <>
+                    {" "}
+                    <Sidebar />
+                    <EventDetails/>{" "}
                   </>
                 }
               />

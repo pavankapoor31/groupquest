@@ -6,6 +6,7 @@ import { auth } from "../../firebase";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify'
+import axios from "axios";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,12 +18,24 @@ const Login = () => {
         // Signed in 
         const user = userCredential.user;
         console.log(user,'user')
-        localStorage.setItem('profile.id',JSON.stringify(user.uid))
+        axios.get(
+          `http://localhost:3001/api/users?filter={"where":{"email":"${user.email}"}}`
+        ).then(
+          (res)=>{
+            try{
+              localStorage.setItem('profile.id',JSON.stringify(res.data[0].id))
+            }
+            catch (err){
+              console.log(err)
+            }
+          }
+        )
+       
         localStorage.setItem('profile.email',JSON.stringify(user.email))
         localStorage.setItem('stsTokenManager',JSON.stringify(user.stsTokenManager))
         localStorage.setItem('displayName',JSON.stringify(user.displayName))
         toast.success('Login successful.', { toastId: 'success', icon: false });
-        navigate('/Home')
+        navigate('/home')
         // ...
       })
       .catch((error) => {

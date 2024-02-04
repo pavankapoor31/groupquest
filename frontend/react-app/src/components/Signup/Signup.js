@@ -56,7 +56,7 @@ const Signup = () => {
               console.log(err)
             }
           )
-          navigate("/Home");
+          navigate("/home");
           // ...
         })
         .catch((error) => {

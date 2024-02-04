@@ -331,14 +331,6 @@ const Sidebar = () => {
             <TaskAltIcon/>
             <Text clicked={click}>Goals</Text>
           </Item>
-          <Item
-            onClick={() => setClick(false)}
-            activeClassName="active"
-            to="/resources"
-          >
-            <img src={Documents} alt="Documents" />
-            <Text clicked={click}>Documents</Text>
-          </Item>
           <Item onClick={() => setClick(false)}
             activeClassName="inactive"
             style={{borderRight:'none'}}

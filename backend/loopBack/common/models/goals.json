@@ -1,6 +1,6 @@
 
 {
-    "name": "Groups",
+    "name": "Goals",
     "base": "PersistedModel",
     "idInjection": true,
     "options": {
@@ -19,12 +19,14 @@
         "type": "string",
         "required": true
       },
-      "members": {
-        "type": [ "object" ],
-        "required": true
-      },
       "createdOn": {
         "type": "date"
+      },
+      "dueDate": {
+        "type": "date"
+      },
+      "status": {
+        "type": "string"
       }
     },
     "validations": [],

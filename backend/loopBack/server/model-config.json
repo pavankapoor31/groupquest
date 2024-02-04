@@ -16,7 +16,7 @@
   "User": {
     "dataSource": "db"
   },
-  "Groups": {
+  "Goals": {
     "dataSource": "db"
   },
   "Events": {

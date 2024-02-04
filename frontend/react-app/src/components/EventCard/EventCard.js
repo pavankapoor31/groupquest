@@ -21,7 +21,7 @@ const EventCard = ({ event }) => {
       <CardMedia
         component="img"
         height="140"
-        image={image??defaultImg}
+        image={event.image??defaultImg}
         alt={title}
         sx={{ objectFit: 'cover' }}
       />

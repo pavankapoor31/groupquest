@@ -10,6 +10,7 @@ import { auth } from "../../firebase";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import axios from "axios";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [fullname, setFullname] = useState("");
@@ -33,13 +34,28 @@ const Signup = () => {
           toast.success('Sign up successful.', { toastId: 'success', icon: false });
           const user = userCredential.user;
           localStorage.setItem("profile.id", JSON.stringify(user.uid));
-          localStorage.setItem("username", fullname);
+          localStorage.setItem("displayName", JSON.stringify(name));
           console.log(user, "user");
           localStorage.setItem("profile.email", JSON.stringify(user.email));
           localStorage.setItem(
             "stsTokenManager",
             JSON.stringify(user.stsTokenManager)
           );
+          const payload = {
+            username:fullname,
+            email:user.email,
+            password:"NA",
+            uid:user.uid
+          }
+          axios.post('http://localhost:3001/api/users',payload).then(
+            (res)=>{
+              localStorage.setItem('profile.id',JSON.stringify(res.data.id))
+            }
+          ).catch(
+            (err)=>{
+              console.log(err)
+            }
+          )
           navigate("/Home");
           // ...
         })
@@ -48,34 +64,6 @@ const Signup = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log("Sign up Failed");
-        });
-      // User has been logged in successfully
-    } catch (error) {
-      console.error("Error logging in:", error.message);
-    }
-  };
-  const handleLogin = async () => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user, "user");
-          localStorage.setItem("profile.id", JSON.stringify(user.uid));
-          localStorage.setItem("profile.email", JSON.stringify(user.email));
-          localStorage.setItem(
-            "stsTokenManager",
-            JSON.stringify(user.stsTokenManager)
-          );
-          toast.success('Login successful.', { toastId: 'success', icon: false });
-          navigate("/Home");
-          // ...
-        })
-        .catch((error) => {
-        toast.error('Login failed '+error, { toastId: 'failure', icon: true });
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          window.alert("Login Failed");
         });
       // User has been logged in successfully
     } catch (error) {

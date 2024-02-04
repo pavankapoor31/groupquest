@@ -25,8 +25,11 @@ const EventDetails = () => {
     <div className='main-element'>
         
         Event Details
-
+        <div className='d-flex '>
+          <div className='event-info'></div>
         <ChatApp groupId={id}/>
+        </div>
+       
     </div>
   )
 }

@@ -11,8 +11,8 @@ const EventDetails = () => {
   const [createdBy, setCreatedBy] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    let id = localStorage.getItem('profile.id');
-    if(!id) navigate('/login')
+    let Pid = localStorage.getItem('profile.id');
+    if(!Pid) navigate('/login')
     axios
       .get(`http://localhost:3001/api/events?filter={"where":{"id":"${id}"}}`)
       .then((res) => {

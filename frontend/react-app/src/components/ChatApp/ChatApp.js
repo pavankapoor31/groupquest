@@ -67,37 +67,41 @@ const ChatApp = ({ groupId }) => {
   }, [messages]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', maxWidth: '600px', margin: 'auto' }}>
-      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', height: 'calc(100vh - 10rem)', overflowY: 'auto', width: '100%', background: 'black', color: 'white' }} ref={paperRef}>
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: message.user_id === profileId ? 'flex-end' : 'flex-start',
-              marginBottom: '8px',
-            }}
-          >
-            <Paper
-              elevation={3}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', maxWidth: '600px',minWidth: '400px',  }}>
+      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', height: 'calc(100vh - 12rem)', overflowY: 'auto', width: '100%', background: '#d8d8d8', color: 'white' }} ref={paperRef}>
+        {
+          messages.length===0? <span className='text-black'>Start a conversation with the group members!</span> : 
+          messages.map((message, index) => (
+            <div
+              key={index}
               style={{
-                padding: '12px',
-                borderRadius: '12px',
-                background: message.user_id === profileId ? '#2979FF' : 'white',
-                color: message.user_id === profileId ? 'white' : 'black',
-                maxWidth: '70%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: message.user_id === profileId ? 'flex-end' : 'flex-start',
+                marginBottom: '8px',
               }}
             >
-              <Typography variant="body2" style={{ fontSize: '14px' }}>
-                {message.message}
-              </Typography>
-              <Typography variant="caption" style={{ marginTop: '8px', textAlign: 'right' }}>
-                {message.displayName}, {moment(message.timestamp).fromNow()}
-              </Typography>
-            </Paper>
-          </div>
-        ))}
+              <Paper
+                elevation={3}
+                style={{
+                  padding: '12px',
+                  borderRadius: '12px',
+                  background: message.user_id === profileId ? '#2979FF' : 'white',
+                  color: message.user_id === profileId ? 'white' : 'black',
+                  maxWidth: '70%',
+                }}
+              >
+                <Typography variant="body2" style={{ fontSize: '14px' }}>
+                  {message.message}
+                </Typography>
+                <Typography variant="caption" style={{ marginTop: '8px', textAlign: 'right' }}>
+                  {message.displayName}, {moment(message.timestamp).fromNow()}
+                </Typography>
+              </Paper>
+            </div>
+          ))
+
+        }
       </Paper>
       <TextField
         label="New Message"

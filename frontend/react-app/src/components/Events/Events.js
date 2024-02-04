@@ -18,20 +18,19 @@ const Events = () => {
             )
         },[]
     )
-    console.log(events,'events')
-  return (
-    <div className='main-element'>
-       <div className='d-flex'>
-       {
-        events?.map(
-            (item)=>{
-                return <EventCard event={item} />
-            }
-        )
-      }
-       </div>
-    </div>
-  )
+    return (
+        <div className='main-element'>
+          <div className='row'>
+            {events?.map((item, index) => (
+              <div key={index} className="col-md-3 mb-4">
+                <EventCard event={item} className="event-card" />
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+      
+      
 }
 
 export default Events

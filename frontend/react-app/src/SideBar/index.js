@@ -16,6 +16,7 @@ import MuiMenu from "../components/MuiMenu/MuiMenu";
 import AddIcon from '@mui/icons-material/Add';
 import AddEvent from "../components/AddEvent";
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
+import AddTask from "../components/AddTask/AddTask";
 const Container = styled.div`
   position: fixed;
   left:0px;
@@ -226,6 +227,7 @@ const Logout = styled.button`
 const Sidebar = () => {
   const [click, setClick] = useState(false);
   const [showAddEvent, setShowAddEvent] = useState(false);
+  const [showAddTask, setShowAddTask] = useState(false);
   const handleClick = () => setClick(!click);
 
   const [profileClick, setprofileClick] = useState(false);
@@ -247,6 +249,10 @@ const Sidebar = () => {
     {
       onclick: () => setShowAddEvent(true),
       title: 'New event'
+    },
+    {
+      onclick: () => setShowAddTask(true),
+      title: 'New goal'
     }
   ]
   const addOptionsElement = (
@@ -269,7 +275,25 @@ const Sidebar = () => {
 
         >
          <div style={{ width: "40%" }}>
-            <AddEvent />
+            <AddEvent setShowAddEvent = {setShowAddEvent}/>
+          </div>
+        </Modal>
+      )}
+        {showAddTask && (
+        <Modal
+          open={showAddTask}
+          onClose={() => setShowAddTask(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+
+        >
+         <div style={{ width: "40%" }}>
+            <AddTask setShowAddTask = {setShowAddTask}/>
           </div>
         </Modal>
       )}

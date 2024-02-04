@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ChatApp from "../ChatApp/ChatApp";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
 import { CardMedia } from "@mui/material";
@@ -9,7 +9,10 @@ const EventDetails = () => {
   const [event, setEvent] = useState();
   const [loading, setLoading] = useState(true);
   const [createdBy, setCreatedBy] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
+    let id = localStorage.getItem('profile.id');
+    if(!id) navigate('/login')
     axios
       .get(`http://localhost:3001/api/events?filter={"where":{"id":"${id}"}}`)
       .then((res) => {

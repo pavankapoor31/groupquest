@@ -35,7 +35,6 @@ const Signup = () => {
           const user = userCredential.user;
           localStorage.setItem("profile.id", JSON.stringify(user.uid));
           localStorage.setItem("displayName", JSON.stringify(name));
-          console.log(user, "user");
           localStorage.setItem("profile.email", JSON.stringify(user.email));
           localStorage.setItem(
             "stsTokenManager",

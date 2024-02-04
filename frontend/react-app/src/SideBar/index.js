@@ -325,7 +325,7 @@ const Sidebar = () => {
           <Item
             onClick={() => setClick(false)}
             activeClassName="active"
-            to="/groups"
+            to="/goals"
           >
             {/* <img src={Team} alt="Team" /> */}
             <TaskAltIcon/>

@@ -45,7 +45,6 @@ const AddEvent = ({setShowAddEvent}) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if(startTime && endTime&& moment(startTime).toISOString()>=moment(endTime).toISOString()){
-        console.log(startTime, endTime,'time')
         window.alert("End time can not be greater than or equal to start time");
         return;
     }
@@ -65,7 +64,6 @@ const AddEvent = ({setShowAddEvent}) => {
         .post('http://localhost:3001/api/Events', formData)
         .then((response) => {
             setShowAddEvent(false);
-          console.log('Event created successfully!', response.data);
           // Handle success
         })
         .catch((error) => {

@@ -29,7 +29,6 @@ const EventCard = ({ event }) => {
   const handleGoingClick = () => {
     setGoingClicked(true);
     if (!isGoingClicked) {
-      console.log(event.members, "going click payload stored");
       let payload = [profileId];
       if (event.members) payload = [...event.members, profileId];
       // http://localhost:3001/api/Events/update?where={"id":${JSON.stringify(id)}}
@@ -39,7 +38,6 @@ const EventCard = ({ event }) => {
           { members: payload }
         )
         .then(() => {
-          console.log("POST request sent successfully");
           setMemberCount((prev) => prev + 1);
         })
         .catch((error) => {
@@ -60,7 +58,6 @@ const EventCard = ({ event }) => {
           pauseOnHover: true,
           draggable: true,
         });
-        console.log("Link copied to clipboard:", shareLink);
       })
       .catch((error) => {
         console.error("Error copying to clipboard:", error);

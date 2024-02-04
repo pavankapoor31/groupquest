@@ -16,13 +16,9 @@ import {
   LinearProgress,
 } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Goals = () => {
-  const [goals, setGoals] = useState([
-    { id: 1, name: "Learn React", achieved: false },
-    { id: 2, name: "Build a project", achieved: false },
-    { id: 3, name: "Master CSS", achieved: true },
-    // Add more goals as needed
-  ]);
+  const [goals, setGoals] = useState([]);
   let profileId = localStorage.getItem("profile.id");
   profileId = JSON.parse(profileId);
   const fetchGoals = () => {
@@ -37,7 +33,19 @@ const Goals = () => {
         console.log(err);
       });
   };
+  const navigate = useNavigate();
   useEffect(() => {
+    try {
+      let userId = localStorage.getItem('profile.id');
+      let useremail = localStorage.getItem('profile.email');
+  
+      if (!userId || !useremail) {
+        navigate('/login');
+      }
+    } catch (error) {
+      console.log(error, 'login');
+      navigate('/login');
+    }
     fetchGoals();
     const intervalId = setInterval(fetchGoals, 10000);
     return () => clearInterval(intervalId);

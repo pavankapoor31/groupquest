@@ -50,7 +50,7 @@ function RouteManager() {
                 }
               />
               <Route
-                path={"/groups"}
+                path={"/goals"}
                 element={
                   <>
                     {" "}

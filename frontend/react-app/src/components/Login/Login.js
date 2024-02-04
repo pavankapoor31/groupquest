@@ -17,7 +17,6 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log(user,'user')
         axios.get(
           `http://localhost:3001/api/users?filter={"where":{"email":"${user.email}"}}`
         ).then(

@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css'; // Make sure to import your CSS file
+import { useNavigate } from 'react-router-dom';
 
 const GroupQuest = () => {
   const [profilename, setProfileName] = useState('');
   const studyImage = require('./../../assets/studying.jpeg')
+  const navigate = useNavigate();
   useEffect(() => {
     try {
       let name = localStorage.getItem('displayName');
+      let id = localStorage.getItem('profile.id');
+      if(!id) {setTimeout(
+        ()=>{
+          let id = localStorage.getItem('profile.id');
+          if(!id) navigate('/login')
+        },300
+      )}
       name = JSON.parse(name);
       setProfileName(name);
     } catch (err) {
-      console.log(err);
+      console.log(err,'loginnnn');
+      navigate('/login')
     }
   }, []);
 

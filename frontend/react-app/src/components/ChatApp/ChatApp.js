@@ -68,7 +68,7 @@ const ChatApp = ({ groupId }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', maxWidth: '600px', margin: 'auto' }}>
-      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', height: '400px', overflowY: 'auto', width: '100%', background: 'black', color: 'white' }} ref={paperRef}>
+      <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', height: 'calc(100vh - 10rem)', overflowY: 'auto', width: '100%', background: 'black', color: 'white' }} ref={paperRef}>
         {messages.map((message, index) => (
           <div
             key={index}

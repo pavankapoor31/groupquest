@@ -1,0 +1,8 @@
+.event-card-image:hover {
+    filter: brightness(60%);
+    cursor: pointer; 
+  }
+
+.event-card-image {
+    transition: filter 0.3s ease, cursor 0.3s ease;
+}

@@ -12,11 +12,9 @@ import Groups from "../components/Groups/Groups";
 import Events from "../components/Events/Events";
 import EventDetails from "../components/EventDetails/EventDetails";
 
-
 const Pages = styled.div`
   width: 100vw;
   height: 100vh;
- 
 
   h1 {
     font-size: calc(2rem + 2vw);
@@ -31,31 +29,61 @@ const Pages = styled.div`
  * Define all the elements in Pages folder.
  */
 
-const isLoginOrSignup = () => {
-  return ['/login', '/signup'].includes(window.location.pathname);
-};
-
-function    RouteManager() {
+function RouteManager() {
   return (
     <div className="bg-main">
       <Pages>
-      <Router>
-      {/* <Sidebar /> */}
-      {!isLoginOrSignup() && <Sidebar />}
-        <AnimatePresence mode="wait">
-          <Routes >
-          <Route path={"/login"} element={<Login />} />
-          <Route path={"/signup"} element={<Signup />} />
-          <Route path={"/home"} element={<Home />} />
-          <Route path={"/groups"} element={<Groups />} />
-          <Route path={"/events"} element={<Events />} />
-          <Route path={"/events/details/:id"} element={<EventDetails />} />
-          </Routes>
-        </AnimatePresence>
-      </Router>
+        <Router>
+          {/* <Sidebar /> */}
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path={"/login"} element={<Login />} />
+              <Route path={"/signup"} element={<Signup />} />
+              <Route
+                path={"/home"}
+                element={
+                  <>
+                    {" "}
+                    <Sidebar />
+                    <Home />{" "}
+                  </>
+                }
+              />
+              <Route
+                path={"/groups"}
+                element={
+                  <>
+                    {" "}
+                    <Sidebar />
+                    <Groups />{" "}
+                  </>
+                }
+              />
+              <Route
+                path={"/events"}
+                element={
+                  <>
+                    {" "}
+                    <Sidebar />
+                    <Events />{" "}
+                  </>
+                }
+              />
+              <Route
+                path={"/events/details/:id"}
+                element={
+                  <>
+                    {" "}
+                    <Sidebar />
+                    <EventDetails />{" "}
+                  </>
+                }
+              />
+            </Routes>
+          </AnimatePresence>
+        </Router>
       </Pages>
-
-      </div>
+    </div>
   );
 }
 export default RouteManager;

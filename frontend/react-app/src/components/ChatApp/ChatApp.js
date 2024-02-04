@@ -28,30 +28,36 @@ const ChatApp = ({ groupId }) => {
     }
   };
 
+  const handleFileChange = async (e) => {
+    setSelectedFile(e.target.files[0]);
+    console.log(e.target,'selectedFile')
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+    console.log(formData,'formData');
+    const payload = {
+      attachment : formData,
+      group_id: groupId,
+      uploadedBy: profileId,
+      description: selectedFile.name,
+      sharedOn: moment().utc(),
+
+    }
+    const fileResponse = await fetch('http://localhost:3001/api/Resources', {
+        method: 'POST',
+        body:JSON.stringify( payload),
+      });
+      console.log(fileResponse,'fileResponse')
+  };
+
   const postMessage = async () => {
     try {
-      const formData = new FormData();
-      formData.append('file', selectedFile);
-
-      const fileResponse = await fetch('http://localhost:3001/api/Resources', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const fileData = await fileResponse.json();
-
       const payload = {
         message: newMessage,
         group_id: groupId,
         user_id: profileId,
         displayName: displayName,
         timestamp: moment().utc(),
-        attachment: {
-          filename: fileData.filename,
-          url: fileData.url,
-        },
       };
-
       const response = await fetch('http://localhost:3001/api/discussions', {
         method: 'POST',
         headers: {
@@ -80,7 +86,7 @@ const ChatApp = ({ groupId }) => {
       paperRef.current.scrollTop = paperRef.current.scrollHeight;
     }
   }, [messages]);
-
+  console.log(selectedFile,'selectedFile chat')
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', maxWidth: '600px',minWidth: '400px',  }}>
       <Paper elevation={3} style={{ padding: '16px', marginBottom: '16px', height: 'calc(100vh - 12rem)', overflowY: 'auto', width: '100%', background: '#d8d8d8', color: 'white' }} ref={paperRef}>
@@ -143,7 +149,8 @@ const ChatApp = ({ groupId }) => {
                 type="file"
                 accept=".pdf"
                 style={{ display: 'none' }}
-                onChange={(e) => setSelectedFile(e.target.files[0])}
+                onChange={handleFileChange}
+                // onChange={(e) => setSelectedFile(e.target.files[0])}
               />
             </InputAdornment>
           ),

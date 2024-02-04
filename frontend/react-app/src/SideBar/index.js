@@ -11,7 +11,10 @@ import PowerOff from "../assets/power-off-solid.svg";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import  Avatar  from "react-avatar";
-
+import { Modal, Tooltip } from "@mui/material";
+import MuiMenu from "../components/MuiMenu/MuiMenu";
+import AddIcon from '@mui/icons-material/Add';
+import AddEvent from "../components/AddEvent";
 const Container = styled.div`
   position: fixed;
   left:0px;
@@ -221,6 +224,7 @@ const Logout = styled.button`
 
 const Sidebar = () => {
   const [click, setClick] = useState(false);
+  const [showAddEvent, setShowAddEvent] = useState(false);
   const handleClick = () => setClick(!click);
 
   const [profileClick, setprofileClick] = useState(false);
@@ -238,8 +242,36 @@ const Sidebar = () => {
         }
     },[]
   )
+  const addOptionsList = [
+    {
+      onclick: () => setShowAddEvent(true),
+      title: 'New event'
+    }
+  ]
+  const addOptionsElement = (
+      <AddIcon  onClick={() =>{}}/>
+  );
+
   return (
     <Container>
+        {showAddEvent && (
+        <Modal
+          open={showAddEvent}
+          onClose={() => setShowAddEvent(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+
+        >
+         <div style={{ width: "40%" }}>
+            <AddEvent />
+          </div>
+        </Modal>
+      )}
       <Button clicked={click} onClick={() => handleClick()}>
         Click
       </Button>
@@ -272,6 +304,14 @@ const Sidebar = () => {
           >
             <img src={Calender} alt="Calender" />
             <Text clicked={click}>Events</Text>
+          </Item>
+          <Item onClick={() => setClick(false)}
+            activeClassName="inactive"
+            style={{borderRight:'none'}}
+            >
+          <Tooltip title='Add new' arrow disableInteractive>
+              <MuiMenu renderTitle={addOptionsElement} optionsList={addOptionsList} />
+            </Tooltip>
           </Item>
           {/* <Item
             onClick={() => setClick(false)}

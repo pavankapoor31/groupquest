@@ -2,3 +2,7 @@
     margin-top: 2rem;
     height: calc(100vh - 4rem);
 }
+
+.date-picker-wrapper {
+    min-width: 230px; 
+  }

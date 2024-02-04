@@ -14,10 +14,6 @@
       "description": {
         "type": "string"
       },
-      "group_id": {
-        "type": "string",
-        "required": true
-      },
       "startTime": {
         "type": "date",
         "required": true

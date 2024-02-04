@@ -18,6 +18,7 @@ const Events = () => {
             )
         },[]
     )
+    console.log(events,'events')
   return (
     <div className='main-element'>
        <div className='d-flex'>

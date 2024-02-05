@@ -16,11 +16,13 @@ You need to **run backend first**.
 **Please ensure your port 3001 is not running anything else to run backend**
 
 **Steps to run backend**
+
  <code> cd backend/loopback
  npm install
  npm start </code>
  
-**Steps to start IU**
+**Steps to start UI**
+
  <code> cd frontend/react-app
  npm install --legacy-peer-deps
  npm start </code>

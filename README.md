@@ -5,6 +5,7 @@ It includes key features such as to chat with different people, user authenticat
 
 ## Cloning the repo: 
 <code>git clone https://github.com/pavankapoor31/groupquest</code>
+
 <code>cd groupquest </code>
 
 ## Setting up project: 

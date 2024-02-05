@@ -1,7 +1,8 @@
 # Welcome to GroupQuest!
 
-Hi! GroupQuest is an all in one study and event planner where you can create events to collaborate with different people with similar interests!
-It includes key features such as to chat with different people, user authentication, setting goals to track your progress. 
+Hi! **GroupQuest** is an all-in-one study and event planner where you can create events to collaborate with different people with similar interests! It includes key features such as chatting with different people, user authentication, creating events, and setting goals to track your progress.
+
+Developed as a part of **I got skills to show** hackathon organized by [**LeagueX**](https://www.leaguex.com/)
 
 ## Cloning the repo: 
 <code>git clone https://github.com/pavankapoor31/groupquest</code>

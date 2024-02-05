@@ -73,7 +73,7 @@ const SidebarContainer = styled.div`
   margin-top: 1rem;
   border-radius: 0 30px 30px 0;
   padding: 1rem 0;
-
+  z-index:9999;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,6 +104,7 @@ const SlickBar = styled.ul`
   position: absolute;
   top: 6rem;
   left: 0;
+  z-index:9999;
 
   width: ${(props) => (props.clicked ? "12rem" : "3.5rem")};
   transition: all 0.5s ease;

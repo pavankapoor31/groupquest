@@ -49,7 +49,7 @@ const GroupQuest = () => {
           </div>
 
           <div className='col-md-8'>
-            <div className='card p-3 mb-4'>
+            <div className='card boxshadow p-3 mb-4'>
               <h4 className='card-title'>Enhance Collaboration</h4>
               <p className='card-text'>GroupQuest fosters collaboration by providing a platform for seamless communication and coordination. Communicate with your study group, share resources, and achieve academic success through collective efforts.</p>
             </div>
@@ -57,7 +57,8 @@ const GroupQuest = () => {
             <img
               src={studyImage} // Replace with your image URL
               alt="GroupQuest Image"
-              className='img-fluid col-md-11'
+              className='img-fluid col-md-12'
+              style={{paddingRight:'10px'}}
             />
           </div>
         </div>

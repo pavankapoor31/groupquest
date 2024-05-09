@@ -26,4 +26,18 @@ You need to **run backend first**.
  <code> cd frontend/react-app
  npm install --legacy-peer-deps
  npm start </code>
- 
+
+ ## Snapshots
+
+![Screenshot 2024-05-06 013006](https://github.com/pavankapoor31/groupquest/assets/70996642/b88dc1fe-c9b8-4ea6-be80-6ab2dcbc6f60)
+
+![Screenshot 2024-05-06 013344](https://github.com/pavankapoor31/groupquest/assets/70996642/f1394482-1d43-4f56-9264-721fc75c3286)
+
+![Screenshot 2024-05-06 013034](https://github.com/pavankapoor31/groupquest/assets/70996642/5fe2d24a-5562-445e-83c6-c1cfa023c268)
+
+![Screenshot 2024-05-06 012653](https://github.com/pavankapoor31/groupquest/assets/70996642/eec3c119-4cbb-439f-976b-a1177b32ee5d)
+
+![Screenshot 2024-05-06 013140](https://github.com/pavankapoor31/groupquest/assets/70996642/16f08b9c-00d5-4c8e-b971-52b48d813051)
+
+![Screenshot 2024-05-06 013245](https://github.com/pavankapoor31/groupquest/assets/70996642/0f6e6520-ac43-478d-83d2-fb3a4da5f1f0)
+
